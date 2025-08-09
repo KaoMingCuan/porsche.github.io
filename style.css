@@ -1,0 +1,573 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+h2{
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body {
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.logo {
+   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+height: 80px;
+}
+
+/* --- PHẦN SEARCH --- */
+/* Giao diện tổng */
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px 5px;
+}
+
+/* Khung tìm kiếm */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  padding: 8px 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease;
+}
+
+.search-box:hover {
+  border-color: #000;
+}
+
+/* Input */
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 25px;
+}
+
+/* Nút search */
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.search-box button:hover {
+  color: #000;
+}
+
+/* Danh sách kết quả */
+#resultList {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 99;
+}
+
+#resultList li {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#resultList li:hover {
+  background-color: #f5f5f5;
+}
+
+
+.dropdown-wrapper {
+ position: relative;
+  display: inline-block;
+  transform: translateX(-200px);
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  color: black;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #234;
+  min-width: 200px;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.dropdown-wrapper:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #456;
+}
+
+
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+  padding: 15px 30px;
+  background-color: white;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+}
+
+.hero-text p {
+  font-size: 20px;
+}
+
+.car-list {
+  width: 300px;
+  background-color: #fafafa;
+  border-right: 1px solid #eee;
+}
+
+.car-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.car-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.car-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.car-list img {
+  height: 40px;
+}
+
+.car-display {
+  flex: 1;
+  padding: 30px;
+  position: relative;
+}
+
+.note {
+  color: darkred;
+  margin-bottom: 20px;
+}
+
+.main-car {
+  width: 500px;
+  display: block;
+  margin: 0 auto;
+}
+.slider {
+  position: relative;
+ 
+margin: 0 auto;
+  width: 96vw;
+
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  animation: slide 25s ease-in-out infinite;
+  width: calc(100vw * 5);
+ }
+
+.slides img {
+  width: 100vw;
+  height: 80vh;
+  object-fit: cover;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+.caption {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+.car-models {
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cột cố định */
+  gap: 30px;
+  justify-items: center;
+  align-items: stretch;
+}
+  .car-card {
+    display: flex; 
+    gap: 20px;
+    justify-content: left;
+    margin-top: 30px;
+  }
+.car-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  max-width: 360px;
+  height: 300px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.car-item:hover {
+  transform: scale(1.03);
+}
+
+.car-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.car-name {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+}
+.car-image {
+    width: 500px;
+    height: auto;
+}
+
+.dimensions {
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.dimensions span {
+    color: #555;
+}
+
+.specs-table {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.specs-table p {
+    margin: 5px 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #d32f2f;
+}
+.specs {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.specs .left {
+  flex: 1;
+  position: relative;
+}
+
+.specs img {
+  max-width: 100%;
+  height: auto;
+}
+
+.specs .dim,
+.specs .height {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.specs .right {
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+td {
+  padding: 10px 5px;
+  border-bottom: 1px solid #ccc;
+} 
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.car-model {
+  width: 220px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.car-model img {
+  width: 100%;
+  height: auto;
+}
+.actions {
+  margin-top: 10px;
+}
+.actions .btn {
+  display: block;
+  margin: 5px 0;
+  padding: 6px;
+  border: 1px solid #000;
+  text-decoration: none;
+  color: black;
+}
+.actions .btn:hover {
+  background: #eee;
+}
+.footer-left {
+  text-align: left; /* đảm bảo căn trái toàn bộ */
+}
+
+.footer-left .section-title {
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+}
+.footer-right {
+  text-align: right; 
+}
+
+.footer-right .section-title {
+  font-weight: bold;
+  margin-top: 10px; 
+}
+
+.footer-right .social-icons a {
+  margin-left: 10px;
+  display: inline-block;
+}
+.social-icons a {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.spotify-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #FFE4E1;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;}
+.car-detail-container {
+  display: flex;
+  gap: 40px;
+  margin: 30px auto;
+  max-width: 1100px;
+}
+
+.car-images img {
+  width: 350px;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.car-specs h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.car-specs table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.car-specs table td {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.car-specs table td:first-child {
+  color: #666;
+  width: 60%;
+}
+.intro-section {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9; /* nền nhạt như ảnh */
+}
+
+.intro-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.intro-description {
+  font-size: 14px;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+.intro-button {
+  padding: 8px 16px;
+  border: 1px solid #000;
+  background: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.intro-button:hover {
+  background: #000;
+  color: #fff;
+}
+@keyframes slide {
+  0%, 10%   { transform: translateX(0); }
+  20%, 30%  { transform: translateX(-100vw); }
+  40%, 50%  { transform: translateX(-200vw); }
+  60%, 70%  { transform: translateX(-300vw); }
+  80%, 90%  { transform: translateX(-400vw); }
+  100%      { transform: translateX(0); }
+}
+.video-container {
+  display: flex;
+  justify-content: center; /* căn giữa ngang */
+  align-items: center;     /* căn giữa dọc */
+  height: 96vh;
+  width: 99vw;
+ 
+  overflow: hidden;
+}
