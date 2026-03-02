@@ -61,19 +61,6 @@ Clean modern interface
 
 User-friendly navigation
 
-🗂 Project Structure
-📁 project
- ├── index.html          # Homepage
- ├── porsche-info.html  # Brand introduction page
- ├── 911.html           # Example vehicle detail page
- ├── charging.html      # Charging station map page
- ├── css/
- │    └── style.css     # Main stylesheet
- ├── js/
- │    └── script.js     # Search + slideshow logic
- ├── images/
- │    └── assets
- └── README.md
 🛠 Technologies Used
 
 HTML5
